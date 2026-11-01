@@ -20,6 +20,11 @@
 #include <inttypes.h>
 #endif
 
+#include <float.h>
+#if FLT_EVAL_METHOD != 0
+#error "crlibm needs double arithmetic without extended precision (on 32-bit x86, use --enable-sse2)"
+#endif
+
 
 
 #if (defined(CRLIBM_TYPECPU_X86) || defined(CRLIBM_TYPECPU_AMD64))
