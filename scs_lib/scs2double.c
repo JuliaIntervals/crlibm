@@ -290,6 +290,7 @@ static void get_d_directed(double *result, scs_ptr x, int rndMantissaUp){
 	 Now remove its exponent and add back the implicit one */
       nb.l = (nb.l & ULL(000FFFFFFFFFFFFF)) | ULL(0010000000000000);
       
+      if (nb.l & ((ULL(1) << (-1022 - expofinal)) - 1)) not_null = 1;
       if (rndMantissaUp && (not_null)){
 	nb.l = nb.l >> (-1022 - expofinal);
 	nb.l = nb.l +1; /* works even if we move back into the normals*/
