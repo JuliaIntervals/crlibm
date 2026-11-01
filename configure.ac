@@ -209,12 +209,12 @@ AM_CONDITIONAL(USE_INTERVAL_FUNCTIONS, test x$enable_interval_functions = xyes  
 
 dnl A switch to disable use of double-extended optimised version
 AC_ARG_ENABLE(double-extended,        
-  [  --enable-double-extended       enable double-extended optimised versions of functions if hardware supports it  [[default=yes]]],
+  [  --enable-double-extended       enable double-extended optimised versions of functions if hardware supports it  [[default=no]]],
   [case $enableval in
     yes|no) ;;
     *) AC_MSG_ERROR([bad value $enableval for --enable-double-extended, need yes or no]) ;;
   esac],
-  [enable_double_extended=yes])
+  [enable_double_extended=no])
 
 dnl following line needs a little bit more work on log-de.c and double-extended.h
 dnl AM_CONDITIONAL(USE_HARDWARE_DE, test x$has_ia32_de = xtrue -a x$enable_double_extended = xyes -a x$has_fpu_control=xyes   -o  x$has_ia64_de = xtrue -a x$CC = xicc -a x$enable_double_extended = xyes  )
