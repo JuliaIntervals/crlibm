@@ -1,6 +1,10 @@
 ## Process this file with automake to produce Makefile.in
 
+if USE_SSE2
+AM_CFLAGS = -O0 -std=gnu99 -msse2 -mfpmath=sse
+else
 AM_CFLAGS = -O0 -std=gnu99 # produces a warning, but I really need -O0 and I don't know how to get it.
+endif
 
 if USE_INTERVAL_FUNCTIONS
 bin_PROGRAMS =  crlibm_testval crlibm_soaktest crlibm_soaktest_interval crlibm_testperf crlibm_testperf_interval crlibm_blindtest crlibm_generate_test_vectors
