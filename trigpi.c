@@ -1002,7 +1002,7 @@ double cospi_rz(double x){
      xh = (x-tt)+tt;
      xl = x-xh;   
      Add12(rh,rl, xh*PIHH, (xl*PIHH + xh*PIHM) + (xh*PIM + xl*PIHM) );               
-     TEST_AND_RETURN_RD(rh,rl,PIX_EPS_SIN);
+     TEST_AND_RETURN_RD(rh,rl,PIX_EPS_TAN);
    }
    /* Fall here either if we have a large input, or if we have a small
       input and the rounding test fails.  */
@@ -1155,7 +1155,7 @@ double cospi_rz(double x){
      xh = (x-tt)+tt;
      xl = x-xh;   
      Add12(rh,rl, xh*PIHH, (xl*PIHH + xh*PIHM) + (xh*PIM + xl*PIHM) );               
-     TEST_AND_RETURN_RZ(rh,rl,PIX_EPS_SIN);
+     TEST_AND_RETURN_RZ(rh,rl,PIX_EPS_TAN);
    }
    /* Fall here either if we have a large input, or if we have a small
       input and the rounding test fails.  */

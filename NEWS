@@ -16,6 +16,9 @@
 * Fix sinpi and tanpi for 2^-1000 <= |x| < 2^-950, where they could
   round to the wrong neighbour, and the directed modes could return a
   value on the wrong side of the exact result.
+* Fix tanpi_rd and tanpi_rz for |x| just below 2^-31, where they could
+  be one ulp off, and tanpi_rd could return a value above the exact
+  result.
 * Use the portable log by default. --enable-double-extended builds
   log-de.c as before.
 * Compile with -ffp-contract=off.
