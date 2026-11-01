@@ -1,5 +1,11 @@
 cr-libm, a portable, efficient, correctly rounded mathematical library.
 
+This is a fork of CRlibm maintained by JuliaIntervals for CRlibm.jl and
+IntervalArithmetic.jl, since the original project is no longer
+maintained. It continues the history of the original repository, which
+is no longer online, copied from https://github.com/taschini/crlibm.
+See NEWS for the changes.
+
 To compile: 
 ./configure; make;
 

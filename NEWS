@@ -1,0 +1,10 @@
+1.0beta6
+
+* Fix sinh_rd, sinh_ru and sinh_rz at x = +-710.475860073944, where
+  they returned +-inf instead of +-the largest double.
+* Fix atanpi_rd, atanpi_ru and atanpi_rz for finite |x| >= 2^54, where
+  they returned +-1/2.
+* Use the portable log by default. --enable-double-extended builds
+  log-de.c as before.
+* Compile with -ffp-contract=off.
+* Fix the build of crlibm_exit without fpu_control.h.
