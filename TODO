@@ -20,11 +20,10 @@ Write Gappa proofs for log2-td, log10-td, expm1, log1p
 Check all the existing .gappa against last version of Gappa
  + set the paths right (where there are paths). 
 Write proper proofs of the DE integer rounding tests, or remove DE altogether.
-The first-step bounds of log.c, asin, acos, asinpi, acospi, sin, cos, tan,
-   atan, atanpi, expm1, exp and sinpi_rn were checked rigorously by
-   computer in 2026, but these checks are not in this repository and
-   have no Gappa proof. The 2^-61.5 bound for |x| >= 0.75 in asin and acos
-   is one of them.
+The first-step bounds of log.c, asin, acos, asinpi, acospi, atan, atanpi,
+   expm1, exp, sinpi_rn, and of sin, cos and tan without range reduction,
+   were proven by computer in 2026 (see proofs/), but have no Gappa proof.
+   The 2^-61.5 bound for |x| >= 0.75 in asin and acos is one of them.
 The Gappa and LaTeX proof of log is for log-td.c; log.c, which is the
    one compiled, has none.
 No second (accurate) step has a complete proof. They are correct only

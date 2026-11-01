@@ -1,0 +1,83 @@
+Error bounds of the first (quick) step
+======================================
+
+These Julia programs prove upper bounds on the error of the first step
+of several crlibm functions, and check that each bound is below the
+constant that the step's rounding test relies on. They do not cover the
+second (accurate) step, which is correct only if the lists of worst
+cases are complete.
+
+What is proven
+--------------
+- log.c: log, log2 and log10, all inputs (RDROUNDCST, RNROUNDCST).
+- asincos.c: asin, acos, asinpi and acospi, paths 1 and 2 (|x| < 0.75,
+  RDROUNDCST, RNROUNDCST) and path 3 (|x| >= 0.75, RDROUNDCST9,
+  RNROUNDCST9), with the error of sqrt12_64_unfiltered.
+- trigo_fast.c: sin, cos and tan for small arguments without range
+  reduction (case 2), including the rounding constant that tan_rn
+  computes from x.
+- atan_fast.c: atan and atanpi, all 62 reduction intervals and the case
+  without reduction (epsilon[0..2], rncst[0..2]).
+- expm1.c: both paths (ROUNDCSTDIRECT*, ROUNDCSTCOMMON*).
+- exp-td.c: the quick step with the reduction x - kd*Log2h - kd*Log2l
+  (RDROUNDCST, ROUNDCST), and the error of that reduction.
+- trigpi.c: the test rh == rh + 1.00001*rm of sinpi_rn.
+
+Not covered: the shortcuts for tiny inputs (for example asinpi below
+2^-60), trigo_fast.c with range reduction (case 3), log1p, sinh, cosh,
+pow, cospi and tanpi.
+
+How
+---
+Every quick step is written again in Julia, operation by operation, and
+evaluated in ball arithmetic (Arb), which gives guaranteed enclosures.
+- Each double operation adds at most half an ulp of the largest value
+  it can take on the current piece of the input range. Operations that
+  are exact (Add12, Mul12, subtractions covered by Sterbenz's lemma,
+  products that fit in 53 bits) are checked to be exact where the code
+  relies on it.
+- The double-double operators of crlibm_private.h get error bounds
+  derived from their code (Mul22 relative error below 2^-102.5, Div22,
+  MulAdd22, Mul122).
+- Polynomial approximation errors are bounded with Taylor models: the
+  Taylor coefficients at the centre of each piece plus a remainder from
+  a bound of the function on a disc in the complex plane.
+- The input range of each branch is cut into pieces with no gap between
+  them, and the pieces with the worst bound are split further (branch
+  and bound).
+- Directed tests (TEST_AND_RETURN_*) need |yh + yl - f| below eps times
+  2^(E(yh)+1). Round-to-nearest tests need the relative error below the
+  largest eps for which the constant is at least compute_rn_constant(eps)
+  of maple/common-procedures.mpl.
+
+Constants and tables are read from the C sources when the programs run,
+and every result names the file and line of the constant it is checked
+against. A change of a constant is therefore taken into account, but a
+change of the code itself is not: the transcriptions follow the code at
+commit ae8c88b and must be checked again if a quick step changes.
+
+Assumptions
+-----------
+- IEEE double precision with rounding to nearest, no contraction of
+  a*b+c into a fused multiply-add (the build sets -ffp-contract=off)
+  and no extended precision (crlibm_private.h checks FLT_EVAL_METHOD).
+- PROCESSOR_HAS_FMA undefined: the Dekker products are used, as on every
+  target except PowerPC with GCC and Itanium with the Intel compiler.
+- The default build, without --enable-double-extended, so that log.c is
+  the compiled logarithm.
+- The two rounding tests are correct under the conditions above, as
+  stated in crlibm's documentation. This is not proven here.
+- The bounds are added up in 512-bit floating point rounded to nearest.
+  Its rounding errors are not tracked; they are far below the slack in
+  each bound.
+
+Running
+-------
+With Julia 1.13 (the manifest pins Arblib):
+
+    julia --project=proofs -e 'using Pkg; Pkg.instantiate()'
+    julia --project=proofs proofs/run.jl
+
+It takes about 40 seconds. For each constant it prints the proven bound,
+the constant and the margin in bits. It exits with a non-zero status if
+a bound is not strictly below its constant or if a check fails.
