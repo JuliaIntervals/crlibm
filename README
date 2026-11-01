@@ -6,6 +6,12 @@ maintained. It continues the history of the original repository, which
 is no longer online, copied from https://github.com/taschini/crlibm.
 See NEWS for the changes.
 
+The functions give correct results only when called in round-to-nearest
+mode with subnormal numbers enabled (no flush-to-zero), and when the
+library is compiled without fused multiply-add contraction and without
+extended-precision arithmetic. The build sets the compiler flags for
+this.
+
 To compile: 
 ./configure; make;
 

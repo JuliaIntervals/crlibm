@@ -50,4 +50,5 @@
   library.
 * Remove the CMake build files, which were out of date: they built old
   sources, missed others, and set none of the needed compiler flags.
+* README: state the floating-point settings crlibm needs.
 * Fix the build of crlibm_exit without fpu_control.h.
