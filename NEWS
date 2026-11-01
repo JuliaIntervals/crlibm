@@ -42,5 +42,7 @@
   modes.
 * Stop the build when the compiler computes in extended precision,
   which gives wrong results.
+* make check now fails when a test fails. Before, it passed with
+  exactly 256 failures and reported 77 as a skipped test.
 * Compile with -ffp-contract=off.
 * Fix the build of crlibm_exit without fpu_control.h.

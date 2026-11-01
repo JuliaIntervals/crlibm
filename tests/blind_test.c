@@ -175,7 +175,7 @@ int main (int argc, char *argv[])
     r=skip_comments(f, line);
   } 
   printf("Test completed for %s, %d failures in %d tests\n", function_name, failures, count);
-  return failures;
+  return failures != 0;
   
 }
 
