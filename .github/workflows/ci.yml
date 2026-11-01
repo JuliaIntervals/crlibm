@@ -20,3 +20,11 @@ jobs:
       - run: ./prepare
       - run: make
       - run: make check
+  check-i686:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update && sudo apt-get install -y autoconf automake gcc-multilib
+      - run: CC="gcc -m32" ./prepare --host=i686-linux-gnu
+      - run: make
+      - run: make check
