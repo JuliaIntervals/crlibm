@@ -364,7 +364,7 @@ void sinpiquick(double *rh, double *rm, double x, int index, int quadrant) {
      return sign*0.0; /*signed */
 
    if(absxih<=0x3E000000) /*2^{-31}*/ {
-     if (absxih<0x01700000) { /* 2^{-1000} :  Get rid of possible subnormals  */
+     if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
        /* in this case, SCS computation, accurate to 2^-210 which is provably enough */
        scs_t result;
        scs_set_d(result, x );
@@ -444,7 +444,7 @@ void sinpiquick(double *rh, double *rm, double x, int index, int quadrant) {
      return sign*0.0; /*signed */
 
     if(absxih<=0x3E000000) /*2^{-31}*/ {
-     if (absxih<0x01700000) { /* 2^{-1000} :  Get rid of possible subnormals  */
+     if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
        /* in this case, SCS computation, accurate to 2^-210 which is provably enough */
        scs_t result;
        scs_set_d(result, x );
@@ -515,7 +515,7 @@ void sinpiquick(double *rh, double *rm, double x, int index, int quadrant) {
      return sign*0.0; /*signed */
 
     if(absxih<=0x3E000000) /*2^{-31}*/ {
-     if (absxih<0x01700000) { /* 2^{-1000} :  Get rid of possible subnormals  */
+     if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
        /* in this case, SCS computation, accurate to 2^-210 which is provably enough */
        scs_t result;
        scs_set_d(result, x );
@@ -588,7 +588,7 @@ void sinpiquick(double *rh, double *rm, double x, int index, int quadrant) {
      return sign*0.0; /*signed */
 
     if(absxih<=0x3E000000) /*2^{-31}*/ {
-     if (absxih<0x01700000) { /* 2^{-1000} :  Get rid of possible subnormals  */
+     if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
        /* in this case, SCS computation, accurate to 2^-210 which is provably enough */
        scs_t result;
        scs_set_d(result, x );
@@ -910,7 +910,7 @@ double cospi_rz(double x){
      return sign*0.0; /*signed */
 
    if(absxih<=0x3E000000) /*2^{-31}*/ {
-     if (absxih<0x01700000) { /* 2^{-1000} :  Get rid of possible subnormals  */
+     if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
        /* in this case, SCS computation, accurate to 2^-210 which is provably enough */
        scs_t result;
        scs_set_d(result, x );
@@ -986,7 +986,7 @@ double cospi_rz(double x){
      return sign*0.0; /*signed */
 
    if(absxih<=0x3E000000) /*2^{-31}*/ {
-     if (absxih<0x01700000) { /* 2^{-1000} :  Get rid of possible subnormals  */
+     if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
        /* in this case, SCS computation, accurate to 2^-210 which is provably enough */
        scs_t result;
        scs_set_d(result, x );
@@ -1066,7 +1066,7 @@ double cospi_rz(double x){
      return sign*0.0; /*signed */
 
    if(absxih<=0x3E000000) /*2^{-31}*/ {
-     if (absxih<0x01700000) { /* 2^{-1000} :  Get rid of possible subnormals  */
+     if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
        /* in this case, SCS computation, accurate to 2^-210 which is provably enough */
        scs_t result;
        scs_set_d(result, x );
@@ -1139,7 +1139,7 @@ double cospi_rz(double x){
      return sign*0.0; /*signed */
 
    if(absxih<=0x3E000000) /*2^{-31}*/ {
-     if (absxih<0x01700000) { /* 2^{-1000} :  Get rid of possible subnormals  */
+     if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
        /* in this case, SCS computation, accurate to 2^-210 which is provably enough */
        scs_t result;
        scs_set_d(result, x );
