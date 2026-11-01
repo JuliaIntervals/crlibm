@@ -26,6 +26,9 @@
   x for integer x, and cospi(x) is +0 for x an integer plus 1/2.
   Before, sinpi_rd returned -0 and sinpi_ru +0 for |x| < 2^52, and
   cospi_rd returned -0.
+* Fix asin_rd, asin_ru and asin_rz at x = -0.478107559539333, the
+  negative of the hardest case of asin, which was handled only for
+  x > 0. asin_rd returned a value above the exact result.
 * Use the portable log by default. --enable-double-extended builds
   log-de.c as before.
 * Compile with -ffp-contract=off.

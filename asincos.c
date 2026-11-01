@@ -902,6 +902,7 @@ double asin_ru(double x) {
 #endif
   
   if (x == ASINBADCASEX) return ASINBADCASEYRU;
+  if (x == -ASINBADCASEX) return -ASINBADCASEYRD;
 
   p_accu(&asinh, &asinm, &asinl, z, index);
   
@@ -1126,6 +1127,7 @@ double asin_rd(double x) {
 #endif
   
   if (x == ASINBADCASEX) return ASINBADCASEYRD;
+  if (x == -ASINBADCASEX) return -ASINBADCASEYRU;
 
   p_accu(&asinh, &asinm, &asinl, z, index);
   
@@ -1343,6 +1345,7 @@ double asin_rz(double x) {
 #endif
   
   if (x == ASINBADCASEX) return ASINBADCASEYRD;
+  if (x == -ASINBADCASEX) return -ASINBADCASEYRD;
 
   p_accu(&asinh, &asinm, &asinl, z, index);
   
