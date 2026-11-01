@@ -36,5 +36,9 @@
   it.
 * Use the portable log by default. --enable-double-extended builds
   log-de.c as before.
+* Use SSE2 arithmetic by default on 32-bit x86. The x87 arithmetic
+  used before computes in extended precision, which breaks the exact
+  operations crlibm relies on, and gave wrong results in the directed
+  modes. --disable-sse2 builds as before.
 * Compile with -ffp-contract=off.
 * Fix the build of crlibm_exit without fpu_control.h.

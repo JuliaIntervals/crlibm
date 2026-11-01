@@ -178,14 +178,17 @@ dnl Command-line arguments to ./configure:
 
 dnl switch for SSE2
 AC_ARG_ENABLE(sse2,
-  [  --enable-sse2    forces the use of sse2 arith  [[default=no]]],
+  [  --enable-sse2    forces the use of sse2 arith  [[default=yes on 32-bit x86, no elsewhere]]],
   [case $enableval in
     yes)
       AC_DEFINE_UNQUOTED(HAS_SSE2,1,[Use the sse2 operators ]);;
     no) ;;
     *) AC_MSG_ERROR([bad value $enableval for --enable-sse2, need yes or no]) ;;
   esac],
-  [enable_sse2=no])
+  [case $host_cpu in
+    i*86|k6|k7|pentium*|athlon*) enable_sse2=yes ;;
+    *) enable_sse2=no ;;
+  esac])
 dnl Send this information to automake 
 AM_CONDITIONAL(USE_SSE2, test x$enable_sse2 = xyes  )
 

@@ -58,7 +58,7 @@ if COMPILER_ICC
 AM_CFLAGS =  -std=c99 -mp -Qoption,cpp,--extended_float_types -IPF_fp_speculationsafe
 else # default assumed to be gcc
 if USE_SSE2
-AM_CFLAGS = -std=c99 -Wall -msse2 -mfpmath=sse -ffp-contract=off
+AM_CFLAGS = -std=c99 -Wall -O3 -msse2 -mfpmath=sse -ffp-contract=off
 else
 AM_CFLAGS = -std=c99 -Wall -O3 -ffp-contract=off
 endif
