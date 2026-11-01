@@ -48,4 +48,6 @@
   configure, so that they cannot turn contraction back on.
 * Build scs_lib with the same compiler flags as the rest of the
   library.
+* Remove the CMake build files, which were out of date: they built old
+  sources, missed others, and set none of the needed compiler flags.
 * Fix the build of crlibm_exit without fpu_control.h.

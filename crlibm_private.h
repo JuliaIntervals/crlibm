@@ -14,7 +14,6 @@
 #ifdef HAVE_CONFIG_H
 #include "crlibm_config.h"
 #endif
-/* otherwise CMake is used, and defines all the useful variables using -D switch */
 
 #ifdef HAVE_INTTYPES_H
 #include <inttypes.h>
