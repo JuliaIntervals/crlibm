@@ -29,6 +29,8 @@
 * Fix asin_rd, asin_ru and asin_rz at x = -0.478107559539333, the
   negative of the hardest case of asin, which was handled only for
   x > 0. asin_rd returned a value above the exact result.
+* Fix acos_ru(6.123233995736766e-17), which returned the double above
+  the correctly rounded result.
 * Use the portable log by default. --enable-double-extended builds
   log-de.c as before.
 * Compile with -ffp-contract=off.

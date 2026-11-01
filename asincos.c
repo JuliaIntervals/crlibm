@@ -1676,7 +1676,7 @@ double acos_ru(double x) {
 
     */
 
-    if (acosm < 0.0) 
+    if (acosm <= 0.0) 
       return acosh;
  
     /* Here the correction acosm is positive, acosh is 
