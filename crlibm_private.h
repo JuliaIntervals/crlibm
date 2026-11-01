@@ -970,7 +970,7 @@ extern void sqrt12(double *resh, double *resl, double x);
 }
 
 /* 
-   sqrt12_64_unfiltered = sqrt(x) * (1 + eps) where abs(eps) <= 2^(-64) 
+   sqrt12_64_unfiltered = sqrt(x) * (1 + eps) where abs(eps) <= 2^(-62.4) 
    
    if x is neither subnormal nor 0
 

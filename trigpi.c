@@ -386,7 +386,7 @@ void sinpiquick(double *rh, double *rm, double x, int index, int quadrant) {
    /* Fall here either if we have a large input, or if we have a small
       input and the rounding test fails.  */
    sinpiquick(&rh, &rm,  y, index, quadrant);
-   if (rh==rh+1.00001*rm) /* See trigpiquick.gappa. This first step is ridiculously too accurate */
+   if (rh==rh+1.00001*rm) /* See trigpiquick.gappa. */
      return rh;
    sinpi_accurate(&rh, &rm, &rl, y, index, quadrant);
    ReturnRoundToNearest3(rh,rm,rl);   

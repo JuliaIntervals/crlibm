@@ -1386,7 +1386,7 @@ double acos_rn(double x) {
      
      arccos(x) = (double-double(pi/2) - x) * ( 1 + xi ) 
 
-     with 0 <= xi < 2^(-87) 
+     with 0 <= xi < 2^(-84) 
           
      From 2^(-27) we have no bad rounding case longer than 5 bits 
      more than the ulp of x, thus the approximation suffices.
@@ -1657,7 +1657,7 @@ double acos_ru(double x) {
      
      arccos(x) = (double-double(pi/2) - x) * ( 1 + xi ) 
 
-     with 0 <= xi < 2^(-87) 
+     with 0 <= xi < 2^(-84) 
           
      From 2^(-27) we have no bad rounding case longer than 5 bits 
      more than the ulp of x, thus the approximation suffices.
@@ -1947,7 +1947,7 @@ double acos_rd(double x) {
      
      arccos(x) = (double-double(pi/2) - x) * ( 1 + xi ) 
 
-     with 0 <= xi < 2^(-87) 
+     with 0 <= xi < 2^(-84) 
           
      From 2^(-27) we have no bad rounding case longer than 5 bits 
      more than the ulp of x, thus the approximation suffices.

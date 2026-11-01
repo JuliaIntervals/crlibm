@@ -183,7 +183,7 @@ static void do_cosh_accurate(int* pexponent,
 
   if(x<0)
     x=-x;
-  if (x > 40.0) {  /* then exp(-x) < 2^-118 exp(x) */
+  if (x > 40.0) {  /* then exp(-x) < 2^-115 exp(x) */
     exp13(pexponent, presh, presm, presl, x);
   }
   else { 
@@ -519,11 +519,11 @@ static void do_sinh_accurate(int* pexponent,
   crlibm_second_step_taken++;
 #endif
 
-  if(x > 40.0) { /* then exp(-x) < 2^-129 exp(x) */ 
+  if(x > 40.0) { /* then exp(-x) < 2^-115 exp(x) */ 
     exp13(pexponent, presh, presm, presl, x);
     return;
   }
-  if(x < -40.0) { /* then exp(x) < 2^-129 exp(-x) */ 
+  if(x < -40.0) { /* then exp(x) < 2^-115 exp(-x) */ 
     exp13(pexponent, presh, presm, presl, -x);
     *presh = -*presh;
     *presm = -*presm;

@@ -199,7 +199,7 @@ double exp_rn(double x){
   Add12Cond(rh,rm,s5,s4);
 #else 
 
-	/* Cody and Waite like, accurate to 2^-84 */
+	/* Cody and Waite like, accurate to 2^-77 */
 	double Log2h= 0xb.17217f8p-16 ;
 	double Log2l= -0x2.e308654361c4cp-48 ;
  Add12Cond(rh,rm, x-kd*Log2h, -kd*Log2l);
@@ -506,7 +506,7 @@ double exp_ru(double x) {
   Add12Cond(rh,rm,s5,s4);
 #else 
 
-	/* Cody and Waite like, accurate to 2^-84 */
+	/* Cody and Waite like, accurate to 2^-77 */
 	double Log2h= 0xb.17217f8p-16 ;
 	double Log2l= -0x2.e308654361c4cp-48 ;
  Add12Cond(rh,rm, x-kd*Log2h, -kd*Log2l);
@@ -813,7 +813,7 @@ double exp_rd(double x) {
   Add12Cond(rh,rm,s5,s4);
 #else 
 
-	/* Cody and Waite like, accurate to 2^-84 */
+	/* Cody and Waite like, accurate to 2^-77 */
 	double Log2h= 0xb.17217f8p-16 ;
 	double Log2l= -0x2.e308654361c4cp-48 ;
  Add12Cond(rh,rm, x-kd*Log2h, -kd*Log2l);
