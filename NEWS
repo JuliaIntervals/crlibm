@@ -11,6 +11,8 @@
 * Fix asin, acos, asinpi and acospi for |x| >= 0.75, where they could
   round to the wrong neighbour, and the directed modes could return a
   value on the wrong side of the exact result.
+* Fix asinpi_rd and asinpi_ru for negative x, where they could round
+  toward zero instead of down or up.
 * Use the portable log by default. --enable-double-extended builds
   log-de.c as before.
 * Compile with -ffp-contract=off.

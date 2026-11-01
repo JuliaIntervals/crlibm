@@ -3738,9 +3738,9 @@ double asinpi_rd(double x) {
 
     /* Final rounding */    
 
-    RoundDownwards3(&asinpi,asinpih,asinpim,asinpil);
+    RoundDownwards3(&asinpi,sign*asinpih,sign*asinpim,sign*asinpil);
 
-    return sign * asinpi;
+    return asinpi;
 
   }
 
@@ -3777,9 +3777,9 @@ double asinpi_rd(double x) {
 
   /* Final rounding */
   
-  RoundDownwards3(&asinpi,asinpih,asinpim,asinpil);
+  RoundDownwards3(&asinpi,sign*asinpih,sign*asinpim,sign*asinpil);
   
-  return sign * asinpi;
+  return asinpi;
   
 }
 
@@ -4091,9 +4091,9 @@ double asinpi_ru(double x) {
 
     /* Final rounding */    
 
-    RoundUpwards3(&asinpi,asinpih,asinpim,asinpil);
+    RoundUpwards3(&asinpi,sign*asinpih,sign*asinpim,sign*asinpil);
 
-    return sign * asinpi;
+    return asinpi;
 
   }
 
@@ -4130,9 +4130,9 @@ double asinpi_ru(double x) {
 
   /* Final rounding */
   
-  RoundUpwards3(&asinpi,asinpih,asinpim,asinpil);
+  RoundUpwards3(&asinpi,sign*asinpih,sign*asinpim,sign*asinpil);
   
-  return sign * asinpi;
+  return asinpi;
   
 }
 
