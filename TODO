@@ -4,6 +4,8 @@ TODO before 1.0 final release
 Serious bugs
 ------------
 No known serious bug left so far. Exception raising should be improved.
+acos_rn misrounds -0x1.cb3b399d747f3p-55 and -0x1.cb3b399d747f4p-55:
+   the shortcut for |x| < 2^-27 has no rounding test.
 
 New functions
 -------------
@@ -18,6 +20,20 @@ Write Gappa proofs for log2-td, log10-td, expm1, log1p
 Check all the existing .gappa against last version of Gappa
  + set the paths right (where there are paths). 
 Write proper proofs of the DE integer rounding tests, or remove DE altogether.
+The first-step bounds of log.c, asin, acos, asinpi, acospi, sin, cos, tan,
+   atan, atanpi, expm1, exp and sinpi_rn were checked rigorously by
+   computer in 2026, but these checks are not in this repository and
+   have no Gappa proof. The 2^-61.5 bound for |x| >= 0.75 in asin and acos
+   is one of them.
+The Gappa and LaTeX proof of log is for log-td.c; log.c, which is the
+   one compiled, has none.
+No second (accurate) step has a complete proof. They are correct only
+   if the published lists of worst cases are complete. The list for acos
+   on [0.75, 1-2^-13) is not known to be complete.
+Prove that sinpi and tanpi need the multiple-precision path only below
+   2^-950. This threshold comes from measured errors.
+Correct the bounds that the 2026 checks found wrong in docs/latex
+   (atan second step: 130 bits, not 136; sinh and cosh; tan; sin).
 
 
 Cleaning up stuff
@@ -27,11 +43,20 @@ Purge obsolete .mpl
 Ensure compilation on icc9 and SunStudio11
 Solution: check recent icc first. Then add FMADE macros everywhere FMA intended
 add make timings
+Remove the left shifts of negative integers in exp-td.c, expm1.c and
+   csh_fast.c. They are undefined in C99, but current compilers compile
+   them as intended.
+Hide the internal functions (scs_*, p_accu, exp13 and others), which
+   are exported.
+RoundToNearest3 returns inf just below the largest double, and
+   scs_get_d rounds subnormal ties away from zero. No function reaches
+   these cases.
 
 Autotest stuff
 --------------
 Add worst cases for all which are currently written TODO
 A lot of the  Lefevre worst cases are still missing
+Add the CORE-MATH lists of worst cases, with both signs.
 You never have enough test cases. In particular asin and acos
 More cases around the various boundaries would be welcome.
 
@@ -41,6 +66,9 @@ Remove remaining SCS: in atan, in trigo.
 Replace the current test for non-IEEE subnormal (on x86) in the code
     with a test taking into account that x86-64 is OK
 Minor improvements to atanpi as mentionned in the doc. 
+ASINPINOSUBNORMALBOUND (0xa5000000) disables the fast path of asinpi for
+   2^-858 <= |x| < 2^-60. The intended 0x0a500000 enables it, but that
+   path misrounds hard cases to nearest, so it stays disabled.
 Fuse atan-pentium and atan-itanium into atan-de, and add in atanpi. 
 Or maybe remove all the DE stuff altogether for cleaning up.
 
