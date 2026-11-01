@@ -19,6 +19,8 @@
 * Fix tanpi_rd and tanpi_rz for |x| just below 2^-31, where they could
   be one ulp off, and tanpi_rd could return a value above the exact
   result.
+* tanpi(n + 1/2) now returns +inf for even n and -inf for odd n, as
+  documented, instead of NaN.
 * Use the portable log by default. --enable-double-extended builds
   log-de.c as before.
 * Compile with -ffp-contract=off.

@@ -908,6 +908,7 @@ double cospi_rz(double x){
       
    if(absxih>=0x43300000) /* 2^52, which entails that x is an integer */
      return sign*0.0; /*signed */
+   if(index==0 && y==0.0) return (quadrant==1) ? 1.0/0.0 : -1.0/0.0;
 
    if(absxih<=0x3E000000) /*2^{-31}*/ {
      if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
@@ -984,6 +985,7 @@ double cospi_rz(double x){
       
    if(absxih>=0x43300000) /* 2^52, which entails that x is an integer */
      return sign*0.0; /*signed */
+   if(index==0 && y==0.0) return (quadrant==1) ? 1.0/0.0 : -1.0/0.0;
 
    if(absxih<=0x3E000000) /*2^{-31}*/ {
      if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
@@ -1064,6 +1066,7 @@ double cospi_rz(double x){
       
    if(absxih>=0x43300000) /* 2^52, which entails that x is an integer */
      return sign*0.0; /*signed */
+   if(index==0 && y==0.0) return (quadrant==1) ? 1.0/0.0 : -1.0/0.0;
 
    if(absxih<=0x3E000000) /*2^{-31}*/ {
      if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
@@ -1137,6 +1140,7 @@ double cospi_rz(double x){
       
    if(absxih>=0x43300000) /* 2^52, which entails that x is an integer */
      return sign*0.0; /*signed */
+   if(index==0 && y==0.0) return (quadrant==1) ? 1.0/0.0 : -1.0/0.0;
 
    if(absxih<=0x3E000000) /*2^{-31}*/ {
      if (absxih<0x04900000) { /* 2^{-950} :  Get rid of possible subnormals  */
