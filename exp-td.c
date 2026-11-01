@@ -27,7 +27,6 @@
 #endif
 
 #define AVOID_FMA 0
-#define EVAL_PERF 1
 
 
 
