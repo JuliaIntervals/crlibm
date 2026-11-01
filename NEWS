@@ -21,6 +21,11 @@
   result.
 * tanpi(n + 1/2) now returns +inf for even n and -inf for odd n, as
   documented, instead of NaN.
+* sinpi and cospi now return the signed zeros given in the
+  documentation, in all rounding modes: sinpi(x) is 0 with the sign of
+  x for integer x, and cospi(x) is +0 for x an integer plus 1/2.
+  Before, sinpi_rd returned -0 and sinpi_ru +0 for |x| < 2^52, and
+  cospi_rd returned -0.
 * Use the portable log by default. --enable-double-extended builds
   log-de.c as before.
 * Compile with -ffp-contract=off.
