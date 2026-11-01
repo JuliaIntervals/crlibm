@@ -46,4 +46,6 @@
   exactly 256 failures and reported 77 as a skipped test.
 * Compile with -ffp-contract=off, also after the CFLAGS given to
   configure, so that they cannot turn contraction back on.
+* Build scs_lib with the same compiler flags as the rest of the
+  library.
 * Fix the build of crlibm_exit without fpu_control.h.
