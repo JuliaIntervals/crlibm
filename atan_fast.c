@@ -421,6 +421,7 @@ extern double atanpi_rd(double x) {
       else
 	return scs_atanpi_rd(sign*x_db.d); /* TODO optim here */
     }
+  if (x_db.d == 1.0) return sign*0.25;
   atan_quick(&atanhi, &atanlo,&index_of_e, x_db.d);
   Mul22(&atanpihi,&atanpilo, INVPIH, INVPIL, atanhi,atanlo);
   maxepsilon = epsilon[index_of_e];
@@ -480,6 +481,7 @@ extern double atanpi_ru(double x) {
       else
 	return scs_atanpi_ru(x);
     }  
+  if (x_db.d == 1.0) return sign*0.25;
   atan_quick(&atanhi, &atanlo, &index_of_e, x_db.d);
   Mul22(&atanpihi,&atanpilo, INVPIH, INVPIL, atanhi,atanlo);
   maxepsilon = epsilon[index_of_e];

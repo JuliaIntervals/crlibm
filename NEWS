@@ -4,6 +4,8 @@
   they returned +-inf instead of +-the largest double.
 * Fix atanpi_rd, atanpi_ru and atanpi_rz for finite |x| >= 2^54, where
   they returned +-1/2.
+* Fix atanpi_ru(1) and atanpi_rd(-1), which returned the double next
+  to +-1/4 instead of +-1/4.
 * Use the portable log by default. --enable-double-extended builds
   log-de.c as before.
 * Compile with -ffp-contract=off.
