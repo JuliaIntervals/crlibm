@@ -57,6 +57,24 @@ Z C08F4000 00000000 ffefffff ffffffff
 
 #TODO check the transition to infinity (as in exp.checkdate)
 
+# Behaviour at the bounds of the domain
+N 408633ce 8fb9f87e 7ff00000 00000000 # The first value whose sinh is +inf
+N 408633ce 8fb9f87d 7fefffff fffffd3b # and the one before
+N c08633ce 8fb9f87e fff00000 00000000 # Same in negative
+N c08633ce 8fb9f87d ffefffff fffffd3b #
+P 408633ce 8fb9f87e 7ff00000 00000000
+P 408633ce 8fb9f87d 7fefffff fffffd3b
+P c08633ce 8fb9f87e ffefffff ffffffff
+P c08633ce 8fb9f87d ffefffff fffffd3a
+M 408633ce 8fb9f87e 7fefffff ffffffff
+M 408633ce 8fb9f87d 7fefffff fffffd3a
+M c08633ce 8fb9f87e fff00000 00000000
+M c08633ce 8fb9f87d ffefffff fffffd3b
+Z 408633ce 8fb9f87e 7fefffff ffffffff
+Z 408633ce 8fb9f87d 7fefffff fffffd3a
+Z c08633ce 8fb9f87e ffefffff ffffffff
+Z c08633ce 8fb9f87d ffefffff fffffd3a
+
 # One in five of the very worst cases computed by Lefevre and Muller.
 # Rounding these values requires evaluating the function to at least 2^(-100).
 # These worst cases have been selected thanks to the filterlists 5 script

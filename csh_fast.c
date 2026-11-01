@@ -616,7 +616,7 @@ double sinh_ru(double x){
   if ((y.i[HI] & 0x7FF00000) >= (0x7FF00000)) {    /*particular cases : QNaN, SNaN, +- oo*/
    return (x);
   }
-  if (y.d > max_input_csh.d) { /* out of range */
+  if (y.d >= max_input_csh.d) { /* out of range */
     if(x>0) {
       y.i[LO] = 0; y.i[HI] = 0x7FF00000; return (y.d);
     }
@@ -668,7 +668,7 @@ double sinh_rd(double x){
     y.d = x;
    return (y.d);
   }
-  if (y.d > max_input_csh.d) { /* out of range */
+  if (y.d >= max_input_csh.d) { /* out of range */
     if(x>0) {
       y.i[LO] = 0xFFFFFFFF; y.i[HI] = 0x7FEFFFFF ; return (y.d);
     }
