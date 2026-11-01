@@ -43,6 +43,31 @@ M fff00000 00000000 bfe00000 00000000 # -inf
 Z 7ff00000 00000000 3fe00000 00000000 # +inf
 Z fff00000 00000000 bfe00000 00000000 # -inf
 
+N 43500000 00000000 3fe00000 00000000 # 2^54
+N 434fffff ffffffff 3fe00000 00000000 # the one before
+N 7fefffff ffffffff 3fe00000 00000000 # largest double
+N c3500000 00000000 bfe00000 00000000 # same in negative
+N c34fffff ffffffff bfe00000 00000000
+N ffefffff ffffffff bfe00000 00000000
+P 43500000 00000000 3fe00000 00000000
+P 434fffff ffffffff 3fe00000 00000000
+P 7fefffff ffffffff 3fe00000 00000000
+P c3500000 00000000 bfdfffff ffffffff
+P c34fffff ffffffff bfdfffff ffffffff
+P ffefffff ffffffff bfdfffff ffffffff
+M 43500000 00000000 3fdfffff ffffffff
+M 434fffff ffffffff 3fdfffff ffffffff
+M 7fefffff ffffffff 3fdfffff ffffffff
+M c3500000 00000000 bfe00000 00000000
+M c34fffff ffffffff bfe00000 00000000
+M ffefffff ffffffff bfe00000 00000000
+Z 43500000 00000000 3fdfffff ffffffff
+Z 434fffff ffffffff 3fdfffff ffffffff
+Z 7fefffff ffffffff 3fdfffff ffffffff
+Z c3500000 00000000 bfdfffff ffffffff
+Z c34fffff ffffffff bfdfffff ffffffff
+Z ffefffff ffffffff bfdfffff ffffffff
+
 N fff80000 00000000 fff80000 00000000 # NaN
 P fff80000 00000000 fff80000 00000000 # NaN
 M fff80000 00000000 fff80000 00000000 # NaN

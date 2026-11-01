@@ -409,8 +409,7 @@ extern double atanpi_rd(double x) {
         return x+x;                /* NaN */
       else{
 	if (sign>0)
-	  return 0.5; 
-	/* Or should it be 0.4999999999999999444888487687421729788184165954589843750; nextdown(0.5) */
+	  return (absxhi == 0x7ff00000) ? 0.5 : 0x1.fffffffffffffp-2;
 	else
 	  return -0.5;           /* atan(infty) = Pi/2 */
       }
@@ -471,7 +470,7 @@ extern double atanpi_ru(double x) {
           if (sign>0)
             return 0.5;
         else
-          return - 0.5;           
+          return (absxhi == 0x7ff00000) ? -0.5 : -0x1.fffffffffffffp-2;
         }
     }
     
