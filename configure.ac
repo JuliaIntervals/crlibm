@@ -96,6 +96,16 @@ else
     esac
 fi
 
+if test "${GCC}" = "yes" ; then
+    case "${CC}" in
+	*icc* )
+	    ;;
+	* )
+	    CFLAGS="${CFLAGS} -ffp-contract=off"
+	    ;;
+    esac
+fi
+
 
 
 
