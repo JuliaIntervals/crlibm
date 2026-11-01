@@ -8,6 +8,9 @@
   to +-1/4 instead of +-1/4.
 * Stop counting calls to the accurate step in a global variable, which
   was not safe when several threads call crlibm.
+* Fix asin, acos, asinpi and acospi for |x| >= 0.75, where they could
+  round to the wrong neighbour, and the directed modes could return a
+  value on the wrong side of the exact result.
 * Use the portable log by default. --enable-double-extended builds
   log-de.c as before.
 * Compile with -ffp-contract=off.

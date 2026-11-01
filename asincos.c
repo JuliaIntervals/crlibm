@@ -628,7 +628,7 @@ double asin_rn(double x) {
 
     /* Rounding test */
 
-    if(asinh == (asinh + (asinm * RNROUNDCST))) 
+    if(asinh == (asinh + (asinm * RNROUNDCST9))) 
       return sign * asinh;
 
     /* Rounding test failed, launch accurate phase */
@@ -845,7 +845,7 @@ double asin_ru(double x) {
     asinh *= sign;
     asinm *= sign;
 
-    TEST_AND_RETURN_RU(asinh, asinm, RDROUNDCST);
+    TEST_AND_RETURN_RU(asinh, asinm, RDROUNDCST9);
 
     /* Rounding test failed, launch accurate phase */
 
@@ -1069,7 +1069,7 @@ double asin_rd(double x) {
     asinh *= sign;
     asinm *= sign;
 
-    TEST_AND_RETURN_RD(asinh, asinm, RDROUNDCST);
+    TEST_AND_RETURN_RD(asinh, asinm, RDROUNDCST9);
 
     /* Rounding test failed, launch accurate phase */
 
@@ -1286,7 +1286,7 @@ double asin_rz(double x) {
     asinh *= sign;
     asinm *= sign;
 
-    TEST_AND_RETURN_RZ(asinh, asinm, RDROUNDCST);
+    TEST_AND_RETURN_RZ(asinh, asinm, RDROUNDCST9);
 
     /* Rounding test failed, launch accurate phase */
 
@@ -1529,7 +1529,7 @@ double acos_rn(double x) {
 
     /* Rounding test */
 
-    if(acosh == (acosh + (acosm * RNROUNDCST))) 
+    if(acosh == (acosh + (acosm * RNROUNDCST9))) 
       return acosh;
 
     /* Rounding test failed, launch accurate phase */
@@ -1821,7 +1821,7 @@ double acos_ru(double x) {
 
     /* Rounding test */
 
-    TEST_AND_RETURN_RU(acosh, acosm, RDROUNDCST);
+    TEST_AND_RETURN_RU(acosh, acosm, RDROUNDCST9);
 
     /* Rounding test failed, launch accurate phase */
 
@@ -2111,7 +2111,7 @@ double acos_rd(double x) {
 
     /* Rounding test */
 
-    TEST_AND_RETURN_RD(acosh, acosm, RDROUNDCST);
+    TEST_AND_RETURN_RD(acosh, acosm, RDROUNDCST9);
 
     /* Rounding test failed, launch accurate phase */
 
@@ -2383,7 +2383,7 @@ double acospi_rn(double x) {
 
     /* Rounding test */
 
-    if(acosh == (acosh + (acosm * RNROUNDCST))) 
+    if(acosh == (acosh + (acosm * RNROUNDCST9))) 
       return acosh;
 
     /* Rounding test failed, launch accurate phase */
@@ -2667,7 +2667,7 @@ double acospi_rd(double x) {
 
     /* Rounding test */
 
-    TEST_AND_RETURN_RD(acosh, acosm, RDROUNDCST);
+    TEST_AND_RETURN_RD(acosh, acosm, RDROUNDCST9);
 
     /* Rounding test failed, launch accurate phase */
 
@@ -2949,7 +2949,7 @@ double acospi_ru(double x) {
 
     /* Rounding test */
 
-    TEST_AND_RETURN_RU(acosh, acosm, RDROUNDCST);
+    TEST_AND_RETURN_RU(acosh, acosm, RDROUNDCST9);
 
     /* Rounding test failed, launch accurate phase */
 
@@ -3359,7 +3359,7 @@ double asinpi_rn(double x) {
 
     /* Rounding test */
 
-    if(asinpih == (asinpih + (asinpim * RNROUNDCST))) 
+    if(asinpih == (asinpih + (asinpim * RNROUNDCST9))) 
       return sign * asinpih;
 
     /* Rounding test failed, launch accurate phase */
@@ -3712,7 +3712,7 @@ double asinpi_rd(double x) {
     asinpih *= sign;
     asinpim *= sign;
 
-    TEST_AND_RETURN_RD(asinpih, asinpim, RDROUNDCST);
+    TEST_AND_RETURN_RD(asinpih, asinpim, RDROUNDCST9);
 
     /* Rounding test failed, launch accurate phase */
 
@@ -4065,7 +4065,7 @@ double asinpi_ru(double x) {
     asinpih *= sign;
     asinpim *= sign;
 
-    TEST_AND_RETURN_RU(asinpih, asinpim, RDROUNDCST);
+    TEST_AND_RETURN_RU(asinpih, asinpim, RDROUNDCST9);
 
     /* Rounding test failed, launch accurate phase */
 
@@ -4415,7 +4415,7 @@ double asinpi_rz(double x) {
     asinpih *= sign;
     asinpim *= sign;
 
-    TEST_AND_RETURN_RZ(asinpih, asinpim, RDROUNDCST);
+    TEST_AND_RETURN_RZ(asinpih, asinpim, RDROUNDCST9);
 
     /* Rounding test failed, launch accurate phase */
 
